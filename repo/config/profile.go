@@ -73,6 +73,11 @@ var Profiles = map[string]Transformer{
 		c.Datastore.Spec = DefaultDatastoreConfig().Spec
 		return nil
 	},
+	"public-networking": func(c *Config) error {
+		c.Addresses.API = "/ip4/0.0.0.0/tcp/5001"
+		c.Addresses.Gateway = "/ip4/0.0.0.0/tcp/8080"
+		return nil
+	},
 }
 
 func appendSingle(a []string, b []string) []string {
